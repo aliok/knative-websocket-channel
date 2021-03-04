@@ -44,7 +44,7 @@ import (
 
 const (
 	defaultControllerAgentName = "websocketchannel-controller"
-	defaultFinalizerName       = "websocketchannels.channels"
+	defaultFinalizerName       = "websocketchannels.channels.aliok.github.com"
 )
 
 // NewImpl returns a controller.Impl that handles queuing and feeding work from
@@ -92,7 +92,7 @@ func NewImpl(ctx context.Context, r Interface, optionsFns ...controller.OptionsF
 
 	logger = logger.With(
 		zap.String(logkey.ControllerType, ctrTypeName),
-		zap.String(logkey.Kind, "channels.WebSocketChannel"),
+		zap.String(logkey.Kind, "channels.aliok.github.com.WebSocketChannel"),
 	)
 
 	impl := controller.NewImpl(rec, logger, ctrTypeName)

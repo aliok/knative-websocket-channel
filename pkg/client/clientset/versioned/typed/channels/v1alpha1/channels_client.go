@@ -29,7 +29,7 @@ type ChannelsV1alpha1Interface interface {
 	WebSocketChannelsGetter
 }
 
-// ChannelsV1alpha1Client is used to interact with features provided by the channels group.
+// ChannelsV1alpha1Client is used to interact with features provided by the channels.aliok.github.com group.
 type ChannelsV1alpha1Client struct {
 	restClient rest.Interface
 }

@@ -36,9 +36,9 @@ type FakeWebSocketChannels struct {
 	ns   string
 }
 
-var websocketchannelsResource = schema.GroupVersionResource{Group: "channels", Version: "v1alpha1", Resource: "websocketchannels"}
+var websocketchannelsResource = schema.GroupVersionResource{Group: "channels.aliok.github.com", Version: "v1alpha1", Resource: "websocketchannels"}
 
-var websocketchannelsKind = schema.GroupVersionKind{Group: "channels", Version: "v1alpha1", Kind: "WebSocketChannel"}
+var websocketchannelsKind = schema.GroupVersionKind{Group: "channels.aliok.github.com", Version: "v1alpha1", Kind: "WebSocketChannel"}
 
 // Get takes name of the webSocketChannel, and returns the corresponding webSocketChannel object, and an error if there is any.
 func (c *FakeWebSocketChannels) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.WebSocketChannel, err error) {
