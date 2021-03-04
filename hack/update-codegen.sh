@@ -42,19 +42,21 @@ ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
   "v1alpha" \
   --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate/boilerplate.go.txt
 
-## Deep copy config
+# DO NOT DO THE FOLLOWING! No default config available yet!
+#
+# Deep copy config
 #${GOPATH}/bin/deepcopy-gen \
 #  -O zz_generated.deepcopy \
 #  --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate/boilerplate.go.txt \
-#  -i knative.dev/eventing/pkg/apis/config \
-#  -i knative.dev/eventing/pkg/apis/messaging/config \
-#
+#  -i github.com/aliok/websocket-channel/pkg/apis/config \
+#  -i github.com/aliok/websocket-channel/pkg/apis/messaging/config \
+
 ## Only deepcopy the Duck types, as they are not real resources.
 #${CODEGEN_PKG}/generate-groups.sh "deepcopy" \
 #  knative.dev/eventing/pkg/client knative.dev/eventing/pkg/apis \
 #  "duck:v1alpha1 duck:v1beta1 duck:v1" \
 #  --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate/boilerplate.go.txt
-#
+
 #group "Knative Codegen"
 #
 ## Knative Injection
