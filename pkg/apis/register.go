@@ -17,5 +17,5 @@ limitations under the License.
 package apis
 
 const (
-	GroupName = "aliok.github.com"
+	GroupName = "channels.aliok.github.com"
 )
