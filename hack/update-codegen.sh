@@ -38,8 +38,8 @@ group "Kubernetes Codegen"
 #                  k8s.io/kubernetes. The output-base is needed for the generators to output into the vendor dir
 #                  instead of the $GOPATH directly. For normal projects this can be dropped.
 ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
-  github.com/aliok/websocket-channel/pkg/client github.com/aliok/websocket-channel/pkg/apis \
-  "v1alpha" \
+  "github.com/aliok/websocket-channel/pkg/client" "github.com/aliok/websocket-channel/pkg/apis" \
+  "channels:v1alpha1" \
   --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate/boilerplate.go.txt
 
 # DO NOT DO THE FOLLOWING! No default config available yet!
