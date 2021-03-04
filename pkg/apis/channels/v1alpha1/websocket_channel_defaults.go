@@ -38,6 +38,6 @@ func (wsc *WebSocketChannel) SetDefaults(ctx context.Context) {
 	wsc.Spec.SetDefaults(ctx)
 }
 
-func (imcs *WebSocketChannelSpec) SetDefaults(_ context.Context) {
+func (wscs *WebSocketChannelSpec) SetDefaults(_ context.Context) {
 	// TODO: Nothing to default here...
 }
