@@ -51,6 +51,8 @@ ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
 #  -i github.com/aliok/websocket-channel/pkg/apis/config \
 #  -i github.com/aliok/websocket-channel/pkg/apis/messaging/config \
 
+# DO NOT DO THE FOLLOWING! No duck types available yet!
+#
 ## Only deepcopy the Duck types, as they are not real resources.
 #${CODEGEN_PKG}/generate-groups.sh "deepcopy" \
 #  knative.dev/eventing/pkg/client knative.dev/eventing/pkg/apis \
