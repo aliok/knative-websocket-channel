@@ -46,8 +46,7 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: DISPATCHER_IMAGE
-            value: docker.io/foo
-#            value: ko://github.com/aliok/websocket-channel/cmd/dispatcher
+            value: ko://github.com/aliok/websocket-channel/cmd/controller
           - name: POD_NAME
             valueFrom:
               fieldRef:

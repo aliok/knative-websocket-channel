@@ -3,6 +3,7 @@ module github.com/aliok/websocket-channel
 go 1.15
 
 require (
+	github.com/google/go-cmp v0.5.4
 	github.com/kelseyhightower/envconfig v1.4.0
 	go.uber.org/zap v1.16.0
 	k8s.io/api v0.19.7
