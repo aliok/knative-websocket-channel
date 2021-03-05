@@ -33,7 +33,7 @@ spec:
       enableServiceLinks: false
       containers:
       - name: controller
-        image: ko://github.com/aliok/cmd/controller
+        image: ko://github.com/aliok/websocket-channel/cmd/controller
         env:
           - name: CONFIG_LOGGING_NAME
             value: config-logging
@@ -46,7 +46,8 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: DISPATCHER_IMAGE
-            value: ko://github.com/aliok/cmd/dispatcher
+            value: docker.io/foo
+#            value: ko://github.com/aliok/websocket-channel/cmd/dispatcher
           - name: POD_NAME
             valueFrom:
               fieldRef:
