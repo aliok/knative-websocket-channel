@@ -19,7 +19,7 @@ const (
 type K8sServiceOption func(*corev1.Service) error
 
 func createChannelServiceName(name string) string {
-	return kmeta.ChildName(name, "-kn-channel")
+	return kmeta.ChildName(name, "-websocket-channel")
 }
 
 // externalService is a functional option for CreateK8sService to create a K8s service of type ExternalName
