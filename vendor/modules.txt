@@ -108,6 +108,8 @@ github.com/go-openapi/jsonreference
 github.com/go-openapi/spec
 # github.com/go-openapi/swag v0.19.7
 github.com/go-openapi/swag
+# github.com/gobuffalo/flect v0.2.2
+github.com/gobuffalo/flect
 # github.com/gogo/protobuf v1.3.1
 github.com/gogo/protobuf/proto
 github.com/gogo/protobuf/sortkeys
@@ -787,6 +789,8 @@ knative.dev/pkg/apis/duck/ducktypes
 knative.dev/pkg/apis/duck/v1
 knative.dev/pkg/changeset
 knative.dev/pkg/client/injection/kube/client
+knative.dev/pkg/client/injection/kube/informers/admissionregistration/v1/mutatingwebhookconfiguration
+knative.dev/pkg/client/injection/kube/informers/admissionregistration/v1/validatingwebhookconfiguration
 knative.dev/pkg/client/injection/kube/informers/apps/v1/deployment
 knative.dev/pkg/client/injection/kube/informers/core/v1/endpoints
 knative.dev/pkg/client/injection/kube/informers/core/v1/service
@@ -803,6 +807,7 @@ knative.dev/pkg/controller
 knative.dev/pkg/hack
 knative.dev/pkg/hash
 knative.dev/pkg/injection
+knative.dev/pkg/injection/clients/namespacedkube/informers/core/v1/secret
 knative.dev/pkg/injection/clients/namespacedkube/informers/factory
 knative.dev/pkg/injection/sharedmain
 knative.dev/pkg/kmeta
@@ -815,6 +820,7 @@ knative.dev/pkg/metrics/metricskey
 knative.dev/pkg/network
 knative.dev/pkg/network/handlers
 knative.dev/pkg/profiling
+knative.dev/pkg/ptr
 knative.dev/pkg/reconciler
 knative.dev/pkg/signals
 knative.dev/pkg/system
@@ -823,7 +829,11 @@ knative.dev/pkg/tracing/propagation/tracecontextb3
 knative.dev/pkg/tracker
 knative.dev/pkg/version
 knative.dev/pkg/webhook
+knative.dev/pkg/webhook/certificates
 knative.dev/pkg/webhook/certificates/resources
+knative.dev/pkg/webhook/resourcesemantics
+knative.dev/pkg/webhook/resourcesemantics/defaulting
+knative.dev/pkg/webhook/resourcesemantics/validation
 # sigs.k8s.io/structured-merge-diff/v4 v4.0.1
 sigs.k8s.io/structured-merge-diff/v4/value
 # sigs.k8s.io/yaml v1.2.0

@@ -61,3 +61,11 @@ spec:
     shortNames:
     - wsc
   scope: Namespaced
+#  conversion:
+#    strategy: Webhook
+#    webhook:
+#      conversionReviewVersions: ["v1alpha1"]
+#      clientConfig:
+#        service:
+#          name: websocket-channel-webhook
+#          namespace: knative-eventing
