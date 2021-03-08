@@ -5,9 +5,11 @@ import (
 	"time"
 
 	"github.com/aliok/websocket-channel/pkg/client/injection/client"
+	websocketchannelinformer "github.com/aliok/websocket-channel/pkg/client/injection/informers/channels/v1alpha1/websocketchannel"
 	websocketchannelreconciler "github.com/aliok/websocket-channel/pkg/client/injection/reconciler/channels/v1alpha1/websocketchannel"
 	"github.com/kelseyhightower/envconfig"
 	"go.uber.org/zap"
+	"k8s.io/client-go/tools/cache"
 	"knative.dev/eventing/pkg/channel"
 	"knative.dev/eventing/pkg/channel/multichannelfanout"
 	"knative.dev/pkg/configmap"
@@ -74,6 +76,18 @@ func NewController(
 	})
 
 	logging.FromContext(ctx).Info("Setting up event handlers")
+
+	webSocketChannelInformer := websocketchannelinformer.Get(ctx)
+
+	// Watch for channels.
+	webSocketChannelInformer.Informer().AddEventHandler(
+		cache.FilteringResourceEventHandler{
+			FilterFunc: func(obj interface{}) bool { return true },
+			Handler: cache.ResourceEventHandlerFuncs{
+				AddFunc:    impl.Enqueue,
+				UpdateFunc: controller.PassNew(impl.Enqueue),
+				DeleteFunc: r.deleteFunc,
+			}})
 
 	// Start the dispatcher.
 	go func() {

@@ -19,6 +19,7 @@ import (
 	"knative.dev/eventing/pkg/channel/multichannelfanout"
 	"knative.dev/eventing/pkg/kncloudevents"
 	"knative.dev/pkg/apis/duck"
+	"knative.dev/pkg/kmeta"
 	"knative.dev/pkg/logging"
 	"knative.dev/pkg/reconciler"
 )
@@ -145,4 +146,23 @@ func newConfigForWebSocketChannel(wsc *v1alpha1.WebSocketChannel) (*multichannel
 			Subscriptions: subs,
 		},
 	}, nil
+}
+
+func (r *Reconciler) deleteFunc(obj interface{}) {
+	if obj == nil {
+		return
+	}
+	acc, err := kmeta.DeletionHandlingAccessor(obj)
+	if err != nil {
+		return
+	}
+	wsc, ok := acc.(*v1alpha1.WebSocketChannel)
+	if !ok || wsc == nil {
+		return
+	}
+	if wsc.Status.Address != nil && wsc.Status.Address.URL != nil {
+		if hostName := wsc.Status.Address.URL.Host; hostName != "" {
+			r.multiChannelMessageHandler.DeleteChannelHandler(hostName)
+		}
+	}
 }
