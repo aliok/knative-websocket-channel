@@ -70,6 +70,7 @@ func NewController(
 	r := &Reconciler{
 		multiChannelMessageHandler: sh,
 		clientSet:                  client.Get(ctx).ChannelsV1alpha1(),
+		reporter:                   reporter,
 	}
 	impl := websocketchannelreconciler.NewImpl(ctx, r, func(impl *controller.Impl) controller.Options {
 		return controller.Options{SkipStatusUpdates: true, FinalizerName: finalizerName}
